@@ -1,5 +1,5 @@
 sudo: false
-language: cpp
+language: c
 compiler:
   - gcc
 addons:
@@ -7,20 +7,16 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - g++-6
+    - gcc
     - valgrind
-before_install:
-  # download riscv32 compiler
-  - chmod +x download-gdrive.sh
-  - ./download-gdrive.sh
-  - tar xvzf riscv-gcc.tar.gz --strip-components 2
-  - export PATH=$PWD/riscv-elf/gcc-8.1.0/bin:$PATH
+    - cppcheck
+    - sanitize
+    - gcov
 install:
-- "[ $CXX = g++ ] && export CXX=g++-6 || true"
+- "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
-  - riscv32-unknown-elf-gcc
   - make
-  - make test
-  - valgrind ./hello
-  - gprof ./hello > gprof.log
-  - head gprof.log -n 200
+  #- make test
+  #- valgrind ./hello
+  #- gprof ./hello > gprof.log
+
