@@ -16,7 +16,7 @@ install:
 - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
   - make
-  #- make test
-  #- valgrind ./hello
+  - make test
+  - valgrind --leak-check=full ./sort ./array ./get_opc
   #- gprof ./hello > gprof.log
 
