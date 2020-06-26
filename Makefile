@@ -82,7 +82,6 @@ INC_DIRS=-Isrc -I$(UNITY_ROOT)/src
 SYMBOLS=
 
 
-
 ################################################################################
 # This part modified by Eugenio Pacceli Reis da Fonseca
 # DCC/UFMG
