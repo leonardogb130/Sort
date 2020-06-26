@@ -72,11 +72,11 @@ ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 
 ## Minhas modificações
 
-UNITY_ROOT=../..
+UNITY_ROOT=tools/Unity/
 
 TARGET_BASE1=test_sort
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
-SRC_FILES1=$(UNITY_ROOT)/src/unity.c array.c  sort.c  get_opt.c  test/TestSort.c  test/test/test_runners/TestSort_Runner.c
+SRC_FILES1=$(UNITY_ROOT)/src/unity.c array.c  sort.c  get_opt.c  test/TestSort.c  test/test_runners/TestSort_Runner.c
 
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src
 SYMBOLS=
@@ -92,8 +92,15 @@ all: app
 default: $(SRC_FILES1)
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
 
-test/test_runners/TestSort_Runner.c: test/TestSort.c
-	ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/TestSort.c  test/test_runners/TestSort_Runner.c
+test: test/TestSort.o test/test_runners/TestFoo_Runner.o array.o sort.o get_opt.o
+	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES) 
+	#ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/TestSort.c  test/test_runners/TestSort_Runner.c
+
+TestSort.o:TestSort.c
+	gcc -o $@ -c $<
+	
+TestSort_Runner.o:test/test_runners/TestFoo_Runner.c
+	gcc -o $@ -c $<
 
 array.o:array.c
 	gcc -o $@ -c $<
@@ -116,7 +123,6 @@ run: build
 clean:
 	rm -f *.o
 	rm -f app
-	$(CLEANUP) $(TARGET1)
 	
 ci: CFLAGS += -Werror
 ci: default

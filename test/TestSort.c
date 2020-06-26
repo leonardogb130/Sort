@@ -36,7 +36,12 @@ void selection_sort(int *array, int size){
 void test_insertion(void)
 {
   /* All of these should pass */
+   int vet=(4,3,7,9,1); // entrada
+   
+   esperado = sort_array(vet, 5, INSERTION); // vai executar o vetor de entrada vet, de tamanho 5 e executar o metodo insertion
+   
 
-  //TEST_ASSERT_EQUAL(1, selection_sort(2,7));
+  //TEST_ASSERT_EQUAL(esperado, selection_sort(2,7));
+  
 }
 

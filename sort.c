@@ -201,6 +201,7 @@ void merge_sort(int* a,int n){
  * @param  method Sorting algorithm constant
  * @return        Pointer to the sorted array
  */
+ // ANALISAR ESTE METODO
 int* sort_array(int *array, int size, int method){
 
     switch(method){

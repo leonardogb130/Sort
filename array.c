@@ -66,6 +66,8 @@ void almost_ordered_array(int *array, int size) {
  * @param  int   organization  How the array will be filled
  * @return int[]               Filled array
  */
+ 
+ // ANALISAR ESTE METODO
 int* generate_array(int size, int organization) {
     int* array;
     array = (int*)malloc(size*sizeof(int));

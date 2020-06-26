@@ -18,6 +18,7 @@ int main(int argc, char **argv) {
     get_opt(argc, argv, &method, &size, &array_type, &print_vector);
 
     // Create the vector with the specified size and situation
+    // ANALISAR *vet
     int *vet = generate_array(size, array_type);
 
     if(!vet){
@@ -31,6 +32,7 @@ int main(int argc, char **argv) {
         vet_aux[i] = vet[i];
     }
     // Sort the array
+    // ANALISAR
     sort_array(vet, size, method);
 
     printf("-- Analysis --\n\n");
