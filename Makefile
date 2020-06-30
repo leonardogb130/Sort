@@ -86,19 +86,22 @@ SYMBOLS=
 # This part modified by Eugenio Pacceli Reis da Fonseca
 # DCC/UFMG
 # Target rules
-all: app
+
+all: app default test
+#test array.o sort.o get_opt.o main.o app clean
 
 default: $(SRC_FILES1)
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	- ./$(TARGET1)
 
-test: test/TestSort.o test/test_runners/TestFoo_Runner.o array.o sort.o get_opt.o
+test: test/TestSort.o test/test_runners/TestSort_Runner.o array.o sort.o get_opt.o
 	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES) 
 	#ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/TestSort.c  test/test_runners/TestSort_Runner.c
 
-TestSort.o:TestSort.c
+TestSort.o:test/TestSort.c
 	gcc -o $@ -c $<
 	
-TestSort_Runner.o:test/test_runners/TestFoo_Runner.c
+TestSort_Runner.o:test/test_runners/TestSort_Runner.c
 	gcc -o $@ -c $<
 
 array.o:array.c
@@ -113,7 +116,7 @@ get_opt.o:get_opt.c
 main.o:main.c
 	gcc -o $@ -c $<
 
-app: array.o sort.o get_opt.o main.o
+app: array.o sort.o get_opt.o main.o TestSort.o TestSort_Runner.o
 	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
 
 run: build
