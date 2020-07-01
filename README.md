@@ -1,16 +1,14 @@
 #sort
 
 
-
-## Information
-> Our program generates and fills arrays in four different ways: 
-  > 
+## Informações
+ 
   1. arrays with totally random elements
   2. arrays already ordered 
   3. arrays ordered in descending order 
   4. arrays 90% ordered.
 	
-> Sorting methods implemented
+> Algoritmos implementados
   >
   1. Selection sort
   2. Insertion sort
