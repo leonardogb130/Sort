@@ -63,4 +63,18 @@ Para executar o programa, ir na pasta raiz do projeto e executar o comando:
 
 ### Testes
 
-
+ test_selection_array_random1: [{4,3,7,9,1},{1,3,4,7,9}]
+ 
+ test_insertion_array_random: [{4,3,7,9,1,5,5,0},{0,1,3,4,5,5,7,9}]
+ 
+ test_quick_array_random: [{4,3,7,9,1,5,5,0,7,2},{0,1,2,3,4,5,5,7,7,9}]
+ 
+ test_selection_array_ascending: [{1,2,3},{1,2,3}]
+ 
+ test_insertion_array_ascending: [{1,2,3,4,5,6},{1,2,3,4,5,6}]
+ 
+ test_shell_array_ascending: [{1,2,3,4,5,6,7},{1,2,3,4,5,6,7}]
+ 
+ test_insertion_array_descending: [{5,8,4,2},{8,5,4,2}]
+ 
+ test_insertion_array_almost: [{5,8,2,4,1},{1,2,4,5,8}]
