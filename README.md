@@ -3,10 +3,13 @@
 
 ## Informações
  
-  1. arrays with totally random elements
-  2. arrays already ordered 
-  3. arrays ordered in descending order 
-  4. arrays 90% ordered.
+  1. vetor com elementos aleatórios
+  2. vetor ja ordenado
+  3. vetor ordenado de forma decrescente
+  4. vetor 90% ordenado
+  
+  
+  
 	
 > Algoritmos implementados
   >
