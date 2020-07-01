@@ -20,6 +20,7 @@
 #include<string.h>
 #include<stdlib.h>
 
+
 clock_t start, end;
 double elapsed_time;
 int numberOfComparisons;
@@ -202,7 +203,6 @@ void merge_sort(int* a,int n){
  * @return        Pointer to the sorted array
  */
 
- // ANALISAR ESTE METODO
 
 int* sort_array(int *array, int size, int method){
 

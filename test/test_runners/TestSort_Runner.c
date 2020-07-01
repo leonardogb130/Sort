@@ -47,7 +47,14 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test/TestSort.c");
-  RUN_TEST(test_insertion, 36); // testname + line number
-
+  RUN_TEST(test_selection_array_random, 28); // testname + line number
+  RUN_TEST(test_insertion_array_random, 46); 
+  RUN_TEST(test_quick_array_random, 59); 
+  RUN_TEST(test_selection_array_ascending, 74); 
+  RUN_TEST(test_insertion_array_ascending, 92);
+  RUN_TEST(test_shell_array_ascending, 108);
+  RUN_TEST(test_insertion_array_almost, 139);
+  
   return (UnityEnd());
 }
+

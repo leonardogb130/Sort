@@ -34,7 +34,6 @@ int main(int argc, char **argv) {
         vet_aux[i] = vet[i];
     }
     // Sort the array
-    // ANALISAR
     sort_array(vet, size, method);
 
     printf("-- Analysis --\n\n");

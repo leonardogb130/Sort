@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+
 /**
  * Function that fills an array with random integers
  * @param int* array Reference to the array that will be filled
@@ -67,7 +68,6 @@ void almost_ordered_array(int *array, int size) {
  * @return int[]               Filled array
  */
 
- // ANALISAR ESTE METODO
 
 int* generate_array(int size, int organization) {
     int* array;

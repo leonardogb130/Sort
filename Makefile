@@ -72,13 +72,13 @@ ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 
 ## Minhas modificações
 
-UNITY_ROOT=tools/Unity/
+UNITY_ROOT=/home/user/Desktop/Sort/tools/Unity
 
 TARGET_BASE1=test_sort
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
 SRC_FILES1=$(UNITY_ROOT)/src/unity.c array.c  sort.c  get_opt.c  test/TestSort.c  test/test_runners/TestSort_Runner.c
 
-INC_DIRS=-Isrc -I$(UNITY_ROOT)/src
+INC_DIRS=-I. -I$(UNITY_ROOT)/src/nity.c -I$(UNITY_ROOT)/src
 SYMBOLS=
 
 
@@ -87,16 +87,13 @@ SYMBOLS=
 # DCC/UFMG
 # Target rules
 
-all: app default test
+all:	app tester
 #test array.o sort.o get_opt.o main.o app clean
 
 default: $(SRC_FILES1)
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
 	- ./$(TARGET1)
 
-test: test/TestSort.o test/test_runners/TestSort_Runner.o array.o sort.o get_opt.o
-	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES) 
-	#ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/TestSort.c  test/test_runners/TestSort_Runner.c
 
 TestSort.o:test/TestSort.c
 	gcc -o $@ -c $<
@@ -116,8 +113,12 @@ get_opt.o:get_opt.c
 main.o:main.c
 	gcc -o $@ -c $<
 
-app: array.o sort.o get_opt.o main.o TestSort.o TestSort_Runner.o
+app: array.o sort.o get_opt.o main.o 
 	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
+
+tester: TestSort.o TestSort_Runner.o array.o sort.o get_opt.o
+	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES) $(INC_DIRS)
+	#ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/TestSort.c  test/test_runners/TestSort_Runner.c
 
 run: build
 	./app
