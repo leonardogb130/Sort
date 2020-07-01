@@ -26,6 +26,8 @@
 -Unity Framework
 - Conta GitHub/Travis-CI
 
+## Classes de Equivalência
+
 https://github.com/leonardogb130/Sort/issues/1#issue-649289221
 
 ## Compilando
